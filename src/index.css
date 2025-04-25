@@ -1,0 +1,621 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.scrollBar::-webkit-scrollbar {
+    height: 0px;
+}
+
+.scrollBar::-webkit-scrollbar-track {
+    background-color: #fafafa;
+}
+
+.scrollBar::-webkit-scrollbar-thumb {
+    background-color: #e1e3ed;
+}
+
+.scrollBar::-webkit-scrollbar-thumb:hover {
+    background-color: #bed9e6;
+}
+/* Target the translate dropdown container */
+#google_translate_element select {
+    background-color: #f0f0f0 !important;
+    /* Change background color */
+    color: #333 !important;
+    /* Change text color */
+    border: 1px solid #ddd !important;
+    /* Add border */
+    padding: 5px !important;
+    /* Add padding */
+    font-size: 14px !important;
+    /* Change font size */
+    font-family: "Arial", sans-serif !important;
+    /* Change font family */
+  }
+  .spanclass{
+    display: block !important;
+  }
+  .goog-te-combo{
+    width: 9rem;
+  }
+  .bgHome{
+    background-image: url("../public/images/homeImg2.jpg");
+    object-fit: fill;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-blend-mode: color; */
+    /* background-color: #f3b70a; */
+    /* backdrop-filter: blur(10px); */
+    background-color: rgba(119, 123, 123, 0.068);
+  }
+  .bgHome2{
+    background-image: url("../public/images/homeImg.jpg");
+    object-fit: fill;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-blend-mode: color; */
+    /* background-color: #f3b70a; */
+    /* backdrop-filter: blur(10px); */
+    background-color: rgba(119, 123, 123, 0.068);
+  }
+   
+  
+/* *{
+  overflow-x: hidden;
+} */
+.bpContainer {
+  background-color: #351a03;
+}
+
+/* background-color: #9f5415; */
+.bpMessageListContainer {
+  background-color: #351a03;
+}
+
+.bpFabContainer:hover {
+  transform: scale(1.1);
+  transition: transform 0.4s ease;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+ 
+.custom-cursor{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 9999;
+  padding: 10px;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+
+}
+.cursor-text{
+  font-size: 5px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  display: none;
+}
+a{
+  color: inherit;
+  text-decoration: none;
+   
+}
+.curZ{
+  /* color: inherit; */
+  text-decoration: none;
+  /*   */
+}
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+ .dispnon{
+  display: none;
+}
+/* Target the translate dropdown container */
+#google_translate_element select {
+  background-color: #f0f0f0 !important;
+  /* Change background color */
+  color: #333 !important;
+  /* Change text color */
+  border: 1px solid #ddd !important;
+  /* Add border */
+  padding: 5px !important;
+  /* Add padding */
+  font-size: 14px !important;
+  /* Change font size */
+  font-family: "Arial", sans-serif !important;
+  /* Change font family */
+}
+.spanclass{
+  display: block !important;
+}
+.goog-te-combo{
+  width: 9rem;
+}
+.bgHome{
+  background-image: url("../public/images/homeImg2.jpg");
+  object-fit: fill;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-blend-mode: color; */
+  /* background-color: #f3b70a; */
+  /* backdrop-filter: blur(10px); */
+  background-color: rgba(119, 123, 123, 0.068);
+}
+.bgHome2{
+  background-image: url("../public/images/homeImg.jpg");
+  object-fit: fill;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-blend-mode: color; */
+  /* background-color: #f3b70a; */
+  /* backdrop-filter: blur(10px); */
+  background-color: rgba(119, 123, 123, 0.068);
+}
+ 
+
+.goog-te-combo {
+  outline: 0;
+}
+
+/* Customize the Google Translate widget container */
+div#google_translate_element {
+  margin: 10px;
+  /* Add margin */
+}
+
+/* Targeting the skiptranslate class to hide Google branding */
+body>.skiptranslate>iframe.skiptranslate {
+  display: none !important;
+  /* Hide the branding iframe */
+}
+
+body>.skiptranslate {
+  display: none !important;
+  /* Hide the outer branding element */
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #8e8e8e;
+  /* Default color for inactive indicators */
+  border-radius: 50%;
+  margin: 5px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+@keyframes appearz {
+  from {
+    opacity: 0;
+    /* scale: 0.5; */
+    transform: translate(100vw);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0px);
+    /* scale: 1; */
+  }
+
+}
+
+
+
+.indicator.active {
+  background-color: #ffffff;
+  /* Active indicator color */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  top: 0 !important;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+.scrolling::-webkit-scrollbar {
+  height: 0;
+}
+
+.scrolling::-webkit-scrollbar-track {
+  background-color: rgb(19, 19, 19);
+}
+
+.scrolling::-webkit-scrollbar-thumb {
+  background-color: #252525;
+}
+
+.scroll::-webkit-scrollbar {
+  height: 0;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background-color: #1e0700;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #311c0c;
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #351a03;
+}
+.lightscroll::-webkit-scrollbar {
+  height: 0;
+}
+
+.lightscroll::-webkit-scrollbar-track {
+  background-color: #fafafa;
+}
+
+.lightscroll::-webkit-scrollbar-thumb {
+  background-color: #e1e3ed;
+}
+
+.lightscroll::-webkit-scrollbar-thumb:hover {
+  background-color: #bed9e6;
+}
+
+/* .scrolling::-webkit-scrollbar-thumb:hover{
+  background-color: #fcb900;
+} */
+#main {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* *{
+  overflow-x: hidden;
+} */
+.bpContainer {
+  background-color: #351a03;
+}
+
+/* background-color: #9f5415; */
+.bpMessageListContainer {
+  background-color: #351a03;
+}
+
+.bpFabContainer:hover {
+  transform: scale(1.1);
+  transition: transform 0.4s ease;
+}
+
+.bpFabIcon {
+  background-color: #f3b901 !important;
+  box-shadow: 1px 4px 6px 4px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.bpModalDialogNewConversationButton {
+  background-color: #c05d08 !important;
+}
+
+.bpModalDialogNewConversationButton:hover {
+  background-color: #c05d08 !important;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+.bpMessageBlocksButton {
+  background-color: #c05d08 !important;
+}
+
+.bpMessageBlocksButton:hover {
+  background-color: #c05d08 !important;
+}
+
+#curser {
+  height: 90px;
+  width: 90px;
+  background-color: white;
+  border-radius: 100%;
+  overflow: hidden;
+  font-size: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  z-index: 99999;
+}
+
+/* remember to put relative inside image div so that the image inside the div follow the sizing properties based to this div */
+#image {
+  width: 20rem;
+  height: 20rem;
+  position: relative;
+}
+
+#image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* we are using overlay div to prevent the missleading of the mouse leaving event when the cursor points at cursor div */
+#overlay {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 90;
+}
+
+.bpHeaderContentTitle {
+  color: white !important;
+}
+
+.bpHeaderContentDescription {
+  color: white !important;
+}
+
+.bpHeaderContentActionsIcons:hover {
+  background-color: #351A03 !important;
+}
+
+.bpHeaderContentActionsIcons {
+  color: white !important;
+  right: 5px;
+  top: -0.5rem;
+  position: absolute;
+  margin: 1rem;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.bpMessageBlocksButton {
+  color: white;
+}
+
+.bpMessageListMarqueeAvatarFallback {
+  background-color: #f36e0a;
+}
+
+.bpHeaderContentAvatarFallback {
+  background-color: #f36e0a;
+}
+
+.bpMessageAvatarFallback {
+  background-color: #f36e0a;
+}
+.bpComposerPoweredBy{
+  display: none;
+}
+.bpContainer {
+  position: fixed;
+  z-index: 100;
+  bottom: 6rem;
+  right: 0rem;
+  width: 22rem;
+  height: 35rem;
+}
+
+.bpHeaderContainer {
+  background-color: #642e00;
+}
+
+.bpFabContainer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 100;
+}
+.placeDiv:hover .placeImg {
+  transform: scale(1.1);
+  transition: transform 1s ease; 
+  /* transition-delay: 0.5s; */
+}
+.placeDiv:hover .blurimage {
+  filter: blur(3px);
+}
+
+.shdw{
+  box-shadow: inset 0px -35px 18px #260b03ab;
+  width: 100vw;
+  height: 3rem;
+  color: #f3b70a;
+  margin-top: -3rem;
+}
+.lightMore{
+  box-shadow: inset 0px -35px 18px #e5e5e5;
+  width: 100vw;
+  height: 3rem;
+  color: black;
+  margin-top: -3rem;
+}
+
+.placeDiv .placeImg {
+  transition: transform 1s ease;
+}
+.aibold {
+  font-weight: bold;
+  font-size: x-large;
+  color: #ffd867;
+}
+.aibold2 {
+  font-weight: bold;
+  font-size: x-large;
+  color: #f2d44c;
+}
+
+.typed-cursor{
+  display: none;
+}
+.stateBg img {
+  min-height: 100vh;
+}
+
+.placeDiv:hover .hoverpack {
+  opacity: 1;
+}
+
+.hoverpack {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  /* transition-delay: 0.9s; */
+}
+.aiRes {
+  font-size: large;
+
+}
+
+.css-rh82gz-DropDown {
+  width: 160px !important;
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+}
+
+.amsterdam {
+  font-family: "New Amsterdam", sans-serif;
+}
+
+.bpMessageContainer[data-direction=outgoing] .bpMessageBlocksBubble {
+  background-color: #f3b70a !important;
+  color: #ffffff !important;
+}
+
+.bpMessageContainer[data-direction=incoming] .bpMessageBlocksBubble {
+  border-color: var(--bpGray-200);
+  background-color: #642e00 !important;
+  color: #ffffff !important;
+}
+
+.scrollBrown::-webkit-scrollbar {
+  width: 12px;
+}
+
+.scrollBrown::-webkit-scrollbar-track {
+  background-color: rgba(165, 42, 42, 0);
+}
+
+.scrollBrown::-webkit-scrollbar-thumb {
+  background-color: #8b4513;
+  /* SaddleBrown color */
+}
+
+.scrollLight::-webkit-scrollbar-thumb:hover {
+  background-color: #2d7fa0;
+  /* Sienna color */
+}
+.scrollLight::-webkit-scrollbar {
+  width: 12px;
+}
+
+.scrollLight::-webkit-scrollbar-track {
+  background-color: rgba(42, 54, 165, 0);
+}
+
+.scrollLight::-webkit-scrollbar-thumb {
+  background-color: #014e60c7;
+  /* SaddleBrown color */
+}
+
+.scrollBrown::-webkit-scrollbar-thumb:hover {
+  background-color: #a0522d;
+  /* Sienna color */
+}
+
+/* @media (-webkit-device-pixel-ratio:1.25){
+  :root{
+    zoom:0.8;
+  }
+} */ 
+ :root{
+  
+    font-size: 90%; /* Reduces the base font size to simulate zoom-out */
+  
+ }
+
+.bpFabIcon {
+  background-color: #f3b901 !important;
+  box-shadow: 1px 4px 6px 4px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.bpModalDialogNewConversationButton {
+  background-color: #c05d08 !important;
+}
+
+.bpModalDialogNewConversationButton:hover {
+  background-color: #c05d08 !important;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+.bpMessageBlocksButton {
+  background-color: #c05d08 !important;
+}
+
+.bpMessageBlocksButton:hover {
+  background-color: #c05d08 !important;
+}
+
+  .goog-te-combo {
+    outline: 0;
+  }
+  
+  /* Customize the Google Translate widget container */
+  div#google_translate_element {
+    margin: 10px;
+    /* Add margin */
+  }
+  
+  /* Targeting the skiptranslate class to hide Google branding */
+  body>.skiptranslate>iframe.skiptranslate {
+    display: none !important;
+    /* Hide the branding iframe */
+  }
+  
+  body>.skiptranslate {
+    display: none !important;
+    /* Hide the outer branding element */
+  }
+
+.react-pdf__Page__canvas{
+    width: 100% !important;
+    height: auto !important;
+}
+
+.streamInfo {
+    display: none; 
+} 
+
+.streamIcon:hover .streamInfo {
+    display: flex !important;
+}
