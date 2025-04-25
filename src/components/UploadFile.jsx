@@ -24,7 +24,7 @@ const UploadPDF = ({ onUpload }) => {
         formData.append("pdf", file);
         console.log('selectedUser', selectedUser._id) 
         try {
-            const data  = await axios.post("http://localhost:3000/upload", formData, {
+            const data  = await axios.post("http://fitnessbackend-production-630b.up.railway.app:3000/upload", formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
             console.log(data.data)
