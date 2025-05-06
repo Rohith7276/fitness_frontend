@@ -1,54 +1,21 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import { ChevronRight, Users } from 'lucide-react';
 import { gsap } from "gsap"
 import { useGSAP } from "@gsap/react";
 import { Menu } from 'lucide-react';
 import { LogOut, Settings, User } from "lucide-react";
 import { useAuthStore } from "../store/useAuthStore";
-import { Link } from "react-router-dom"; 
-import { useChatStore } from '../store/useChatStore';   
+import { Link } from "react-router-dom";
+import CreateGroup from './createGroup';
+import { useChatStore } from '../store/useChatStore';
 const MenuSection = () => {
     const menuDiv = useRef(null);
     const { logout, authUser } = useAuthStore();
-    const { addFriend } = useChatStore()
+    const {addFriend} = useChatStore()
     const [createGroup, setCreateGroup] = useState(false)
     const [friendId, setFriendId] = useState("");
     const { contextSafe } = useGSAP();
 
-    useEffect(() => {
-        const googleTranslateElementInit = () => {
-          if (typeof window !== "undefined" && typeof document !== "undefined") {
-            new window.google.translate.TranslateElement(
-              { pageLanguage: 'en' },
-              'google_translate_element'
-            );
-          }
-         
-        };
-    
-    
-        if (typeof document !== "undefined")
-          document.querySelectorAll('li').forEach(element => {
-            element.style.opacity = 1;
-          });
-    
-        const addGoogleTranslateScript = () => {
-          if (typeof document !== "undefined")
-            var script = document.createElement('script');
-          script.type = 'text/javascript';
-          script.src =
-            'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-          script.async = true;
-          if (typeof document !== "undefined")
-            document.body.appendChild(script);
-          if (typeof window !== "undefined") {
-            window.googleTranslateElementInit = googleTranslateElementInit;
-          }
-        };
-    
-        addGoogleTranslateScript();
-    
-      }, []);
     const closeAnimation = contextSafe(() => {
         gsap.to(menuDiv.current, {
             x: "0vw"
@@ -83,7 +50,7 @@ const MenuSection = () => {
 
     const handleAddFriend = () => {
         addFriend(friendId);
-    }
+      }
 
     return (
         <>
@@ -117,10 +84,7 @@ const MenuSection = () => {
                                     <User className="size-5" />
                                     <span className="hidden sm:inline">Profile</span>
                                 </Link>
-                                <div className='border border-t-0 border-l-0 border-r-0   py-1 lggfd:w-fit border-b-sm lg:border-b-0 w-full lg:w-fit'>
 
-                                    <div id="google_translate_element" className='lg:w-fit overflow-hidden mt-[-0.9rem] h-[2rem]'></div>
-                                </div>
                                 <Link onClick={() => {
                                     closeAnimation()
                                 }}

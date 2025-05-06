@@ -19,10 +19,13 @@ const chatContainer = () => {
     subscribeToMessages,
     subscribeToGroup,
     isUserMessageLoading,
-    unsubscribeFromMessages, 
+    unsubscribeFromMessages,
+    streamSet,
     getStream,
     setStreamMode,
-    videoCall, 
+    videoCall,
+    streamMode,
+    setStreamData,
     streamData
   } = useChatStore();
   const prevScrollHeight = useRef(0)
@@ -48,7 +51,6 @@ const chatContainer = () => {
     size.current = null
     getStream()
     getMessages(selectedUser, page);
-
     if (selectedUser.name === undefined) {
       subscribeToMessages();
     } else {
@@ -77,11 +79,13 @@ const chatContainer = () => {
     }
   }, [isUserMessageLoading]);
 
- 
+  //Infinite scroll
+  useEffect(() => {
+
+  }, [])
 
 
-  useEffect(() => { 
-
+  useEffect(() => {
     prevScrollHeight.current = containerRef.current.scrollHeight;
     prevScrollTop.current = containerRef.current.scrollTop;
     console.log(streamData)
@@ -92,7 +96,11 @@ const chatContainer = () => {
   useEffect(() => {
     if (size.current === messages.length) setShowLoading(false)
     else setShowLoading(true)
- 
+    // if ((prevScrollTop.current == 0 && size.current != messages.length) || size.current == messages.length - 1) messageEndRef.current?.scrollIntoView();
+    // else {
+    //   const newScrollHeight = chatContainer.scrollHeight;
+    //   chatContainer.scrollTop = prevScrollTop.current + (newScrollHeight - prevScrollHeight.current);
+    // } 
     if (containerRef.current?.scrollHeight != null && size.current == null) containerRef.current.scrollTop = containerRef.current?.scrollHeight
     else {
       if (containerRef.current) {
@@ -101,7 +109,6 @@ const chatContainer = () => {
       }
 
     }
-    messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
 
     size.current = messages.length;
 
@@ -157,7 +164,7 @@ const chatContainer = () => {
             <div className="size-11 mx-2 rounded-lg bg-primary/10 flex items-center justify-center">
               <BotMessageSquare className="w-6 h-6 text-primary " />
             </div>
-            <h1 className="font-bold text-2xl">RapidFit! </h1>
+            <h1 className="font-bold text-2xl">RapidStudy! </h1>
           </div>
         }
         {message.map((message, index) => (
@@ -174,7 +181,7 @@ const chatContainer = () => {
               <div
                 ref={messageEndRef}
                 key={message._id}
-                className={`chat mt-0 ${message.senderId === authUser._id && !message?.senderInfo?.ai ? "chat-end " : "chat-start"}`}
+                className={`chat mt-0 ${message.senderId === authUser._id && !message?.senderInfo?.ai ? "chat-end" : "chat-start"}`}
               >
                 <div className=" chat-image avatar">
                   <div className="size-10 rounded-full border">
@@ -191,10 +198,9 @@ const chatContainer = () => {
                     <time className="text-xs flex opacity-50 ml-1">
                       {message.senderId === authUser._id ? message.type == 'ai' ? "Rapid AI" : "You" : selectedUser.fullName} •&nbsp;
                       {message.type == 'ai' ? <span ><BrainCircuit height={"0.88rem"} /></span> : formatMessageTime(message.createdAt)}
-                    </time> 
-
+                    </time>
                   </div>}
-                <div className={`chat-bubble ${message.senderId === authUser._id && !message?.senderInfo?.ai ? "bg-primary text-primary-content text-primary-content/70" : "bg-base-200 text-base-content/70"}  text-base-300 flex flex-col`}>
+                <div className="chat-bubble flex flex-col">
                   {message.image && (
                     <img loading="blur"
                       onClick={(e) => handleImageView(e)}
@@ -230,10 +236,7 @@ const chatContainer = () => {
           </div>
         )}
       </div>
-      {videoCall&& <div className="overflow-y-scroll h-[60vh] ">
-
-        <VideoStream/>
-      </div>}
+        {videoCall&& <VideoStream/>}
 
       <MessageInput />
     </div>

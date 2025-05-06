@@ -72,7 +72,7 @@ const Sidebar = () => {
               <div className="text-sm text-zinc-400 flex">
                 {/* {onlineUsers.includes(user._id) ? "Online" : "Offline"} */}
                 {user.name && <span className="text-green-400 font-semibold pr-1">{user?.timeline?.senderId == authUser._id? "You :" : "Idk :"}</span>}
-                <div className="overflow-x-hidden flex "><span>{user?.timeline?.text.slice(0,20)}</span> <span> {user?.timeline?.text.length >=20 ? "...": ""}</span></div>
+                <div className="overflow-x-hidden flex "><span>{user?.timeline?.text?.slice(0,20)}</span> <span> {user?.timeline?.text?.length >=20 ? "...": ""}</span></div>
               </div>
             </div>
           </button>

@@ -22,23 +22,10 @@ export const useChatStore = create((set, get) => ({
   pdfCheck: false,
   pdfScrollTop: 0,
   videoCall: false,
-  videoId: '',
-  peerId: "",
-  videoPause: false,
 
-  setVideoPause: (boolval) => set({ videoPause: boolval }),
+  setVideoCall: (boolval)=> set({videoCall: boolval}),
 
-  getVideoId: async () => {
-    const { selectedUser } = get()
-    await axiosInstance.post(`/messages/video-call`, { friendId: selectedUser._id, videoId: "", send: "0" })
-    console.log("axios getting vidoe")
-  },
-
-  setVideoId: (val) => set({ videoId: val }),
-
-  setVideoCall: (boolval) => set({ videoCall: boolval }),
-
-  setStreamYoutube: (boolval) => set({ streamYoutube: boolval }),
+  setStreamYoutube: (boolval) => set({streamYoutube: boolval}),
   setPdfScroll: (scroll) => set({ pdfScroll: scroll }),
   getNotifications: async () => {
     const socket = useAuthStore.getState().socket;
@@ -78,10 +65,6 @@ export const useChatStore = create((set, get) => ({
           console.log(pdfScroll)
           await axiosInstance.get(`/auth/user/stream-control/${userId}/${pdfScroll}/${stream._id}`);
 
-        }
-        else if (data == 999998 && streamData?._id == stream._id) {
-          set({ videoPause: true })
-          set({ pdfScrollTop: data })
         }
         else {
           console.log("Setting pdf Scroll")
@@ -127,11 +110,12 @@ export const useChatStore = create((set, get) => ({
 
   createGroup: async (groupData) => {
     try {
+      const { groups } = get();
       const res = await axiosInstance.post("/groups/create-group", groupData);
       set({ groups: res.data.updatedGroups });
-      toast.success(res.message);
+      toast.success(res.data.message);
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.data.message);
     }
   },
 
@@ -178,16 +162,7 @@ export const useChatStore = create((set, get) => ({
 
         const { streamData } = get();
         console.log("streamData", streamData)
-        if (streamData?.streamInfo?.videoUrl) {
-
-          console.log("streamData", streamData.streamInfo.videoUrl)
-          const x = streamData?.streamInfo?.videoUrl.split('v=')[1].split('&')[0]; 
-          let y = await axiosInstance.get(`/auth/user/aisummary/${x}`);
-          console.log("see", y);
-          res = await axiosInstance.post(`/messages/stream-ai`, { ...messageData, data: y.data.text.slice(0, 5800), receiverId: selectedUser._id, groupId: null });
-        }
-
-        else { res = await axiosInstance.post(`/messages/stream-ai`, { ...messageData, data: streamData?.streamInfo?.pdfData?.slice(0, 5800), receiverId: selectedUser._id, groupId: null }); }
+        res = await axiosInstance.post(`/messages/stream-ai`, { ...messageData, data: streamData?.streamInfo?.pdfData?.slice(0, 5800), receiverId: selectedUser._id, groupId: null });
       }
       else
         res = await axiosInstance.post(`/messages/stream-ai`, { ...messageData, receiverId: null, groupId: selectedUser._id });
@@ -235,7 +210,7 @@ export const useChatStore = create((set, get) => ({
   createStream: async (data) => {
     try {
       const res = await axiosInstance.post("/messages/create-stream", data);
-      console.log(res)
+
       set({ streamData: res.data });
 
       toast.success("Stream created successfully" + res.data);
@@ -327,17 +302,6 @@ export const useChatStore = create((set, get) => ({
       });
 
     });
-    socket.on("takeVideoId", (data) => {
-      console.log("taking", data)
-
-      set({ peerId: data })
-    })
-    socket.on("giveVideoId", async () => {
-      const { videoId, selectedUser } = get()
-      console.log("this is peerid", videoId)
-      await axiosInstance.post(`/messages/video-call`, { friendId: selectedUser._id, videoId: videoId, send: "1" })
-      console.log("giving", videoId)
-    })
   },
 
   unsubscribeFromMessages: () => {

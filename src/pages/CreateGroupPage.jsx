@@ -33,7 +33,7 @@ const CreateGroupPage = () => {
     if(groupDesc == '' || groupName =='') 
       toast.error("Please fill all the details!");
     await createGroup({ users: groupUsersIds, description: groupDesc, name: groupName, profilePic: selectedImg });
-    // window.location.href = '/';
+    window.location.href = '/';
   };
 
 

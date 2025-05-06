@@ -1,4 +1,4 @@
-import { DumbbellIcon } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 
 const NoChatSelected = () => {
   return (
@@ -11,13 +11,13 @@ const NoChatSelected = () => {
               className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center
              justify-center animate-bounce"
             >
-              <DumbbellIcon className="w-8 h-8 text-primary " />
+              <MessageSquare className="w-8 h-8 text-primary " />
             </div>
           </div>
         </div>
 
         {/* Welcome Text */}
-        <h2 className="text-2xl font-bold">Welcome to RapidFit!</h2>
+        <h2 className="text-2xl font-bold">Welcome to RapidStudy!</h2>
         <p className="text-base-content/60">
           Select a conversation from the sidebar to start chatting
         </p>

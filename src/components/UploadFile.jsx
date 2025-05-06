@@ -24,7 +24,7 @@ const UploadPDF = ({ onUpload }) => {
         formData.append("pdf", file);
         console.log('selectedUser', selectedUser._id) 
         try {
-            const data  = await axios.post("http://fitnessbackend-production-630b.up.railway.app:3000/upload", formData, {
+            const data  = await axios.post("http://localhost:3000/upload", formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
             console.log(data.data)
@@ -43,7 +43,7 @@ const UploadPDF = ({ onUpload }) => {
     return (
         <div className="flex flex-col items-center space-y-4">
             <div className={` ${startStreaming ? "hidden" : "block"} p-4 space-y-4 flex flex-col gap-5 my-16`}>
-                <h1 className="text-xl font-bold flex">Stream Seamlessly using <span className="ml-2 text-base-300 invert ">RapidFit</span> <BotMessageSquare className="w-6 mr-2 ml-1 h-6 text-primary " />Streams</h1> 
+                <h1 className="text-xl font-bold flex">Stream Seamlessly using <span className="ml-2 text-base-300 invert ">RapidStudy</span> <BotMessageSquare className="w-6 mr-2 ml-1 h-6 text-primary " />Streams</h1> 
     
             <input
               type="text"

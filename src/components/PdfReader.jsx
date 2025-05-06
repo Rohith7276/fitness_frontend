@@ -4,7 +4,6 @@ import { useChatStore } from "../store/useChatStore";
 import { axiosInstance } from "../lib/axios";
 import { useAuthStore } from "../store/useAuthStore";
 import { Download, Sun } from "lucide-react";
-import WebsiteViewer from "./WebsiteStream";
 import { jsPDF } from "jspdf"
 
 // Set the worker file path
@@ -49,7 +48,10 @@ const PDFViewer = ({ pdfUrl }) => {
         console.log("pdfScrollTop", pdfScrollTop)
         pdfRef.current.scrollTop = pdfScrollTop
 
-    }, [pdfScrollTop]); 
+    }, [pdfScrollTop]);
+    useEffect(() => {
+        console.log(brightness)
+    }, [brightness])
 
 
 
